@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>磁暴工坊 · Magnet Rush</title>
+    <style>
+        body {margin:0; background:#111;}
+        canvas {display:block; margin:0 auto;}
+    </style>
+</head>
+<body>
+<script src="wasm_exec.js"></script>
+<script>
+    const go = new Go();
+    WebAssembly.instantiateStreaming(fetch("game.wasm"), go.importObject).then(result => {
+        go.run(result.instance);
+    });
+</script>
+</body>
+</html>
